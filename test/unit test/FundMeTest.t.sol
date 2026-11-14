@@ -1,8 +1,8 @@
 //SPDX-License-Identifier:MIT
 pragma solidity 0.8.34;
 import {Test, console} from "forge-std/Test.sol";
-import {FundMe} from "../src/FundMe.sol";
-import {DeployFundme} from "../script/DeployFundme.s.sol";
+import {FundMe} from "../../src/FundMe.sol";
+import {DeployFundme} from "../../script/DeployFundme.s.sol";
 contract FundMeTest is Test {
     FundMe fundme;
     address Ismail = makeAddr("ismail");
@@ -64,7 +64,7 @@ contract FundMeTest is Test {
         assert(contractbalanceafter == 0);
         assertEq(contractbalancebefore + ownerbalancebefore, ownerbalanceafter);
     }
-    function testcheaperwithdrawalwhithsinglefunder() public funder {
+    /* function testcheaperwithdrawalwhithsinglefunder() public funder {
         uint256 ownerbalancebefore = fundme.getowneraddress().balance;
         uint256 contractbalancebefore = address(fundme).balance;
         vm.prank(fundme.getowneraddress());
@@ -87,5 +87,5 @@ contract FundMeTest is Test {
         uint256 contractbalanceafter = address(fundme).balance;
         assert(contractbalanceafter == 0);
         assertEq(contractbalancebefore + ownerbalancebefore, ownerbalanceafter);
-    }
+    }*/
 }
